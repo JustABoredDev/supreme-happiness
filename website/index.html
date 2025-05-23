@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>CaptchaRace</title>
+	<link rel="stylesheet" href="index.css">
+</head>
+
+<script type="text/javascript" src="index.js"></script>
+
+<body class="siteContainer clockContainer">
+
+	<div class="siteContainer clockContainer">
+		<p name="countdown" class="scoreText">30</p>
+	</div>
+
+	<div class="siteContainer">
+		<div class="siteContainer mainSectionContainer">
+			<div class="siteContainer gameSectionContainer">
+				<img src="content/images/you-img.png">
+				<p class="scoreText" id="userText">0</p>
+				<img src="http://localhost:8080/user" id="gameImage" style="margin-left: -0.5vw;" />
+				<br/>
+				<input type="text" name="captchaUser" oninput="handleInput(this)"/>
+			</div>
+			
+			<hr>
+		
+			<div class="siteContainer gameSectionContainer">
+				<img src="content/images/AI-img.png">
+				<p class="scoreText" id="AIText">0</p>
+				<img src="http://localhost:8080/AI" crossOrigin="anonymous" name="CPTC" id="gameImageAI"/>
+				<br/>
+				<input type="text" id="AIinput" value="warming up..." name="res" oninput="handleInput(this)" 		disabled=true/>
+		
+				<div id="sliderContainer">
+					<div id="blocker" class="slider sliderBlock"></div>
+					<div id="slider" class="slider sliderBG"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div name="endScreens">
+		
+		<div class="endScreen" id="endScreenWinnerUser">
+			<p class="scoreText">YOU WON!</p>
+			<p>well done, you proved you can beat the bot.</p>
+
+
+			<div class="siteContainer">
+				<div class="siteContainer">
+					<p class="scoreText" style="padding-right: 3vw;" id="userScoreEndscreenUser">0</p>
+				<hr/>
+					<p class="scoreText" style="padding-left: 3vw;" id="AIScoreEndscreenUser">0</p>
+				</div>
+			</div>
+
+
+		
+			<button class="playAgainButton" onclick="location.reload(true)">Play Again</button>
+
+		</div>
+
+		<div class="endScreen" id="endScreenWinnerAI">
+			<p class="scoreText">THE BOT WON!</p>
+			<p>unfortunately, you didn't beat the bot this time.</p>
+			
+			<div class="siteContainer">
+				<div class="siteContainer">
+					<p class="scoreText" style="padding-right: 3vw;" id="userScoreEndscreenAI">0</p>
+				<hr/>
+					<p class="scoreText" style="padding-left: 3vw;" id="AIScoreEndscreenAI">0</p>
+				</div>
+			</div>
+
+			<button class="playAgainButton" onclick="location.reload(true)">Play Again</button>
+		</div>
+	</div>
+
+	<div id="selectDifficultyScreen" class="startScreen" style="visibility: visible;z-index: 99;">
+		<p class="scoreText" style="color:white;font-size: 5em;">Select Difficulty</p>
+
+		<button class="playAgainButton" onclick="selectDifficulty('easy')">👶Easy</button>
+		<button class="playAgainButton" onclick="selectDifficulty('med')">💪Medium</button>
+		<button class="playAgainButton" onclick="selectDifficulty('hard')">🔥Hard</button>
+		<button class="playAgainButton" style="width: 18vh;" onclick="selectDifficulty('impossible')">❌Impossible </button>
+	</div>
+
+	<div id="startScreen" class="startScreen">
+		<p id="startTimer" class="scoreText" style="color:white;">3</p>
+	</div>
+
+	<div id="zoningAgent" style="visibility: hidden;">
+		<div style="background: rgba(0, 0, 0, 1); position: absolute; left: 1vw; height: 100vh; width: 4vw;top: -2vh;margin: 1em auto;box-shadow: 0 1vw 1vw #defeec inset,0 -1vw 3vw #defeec inset;  background-size: contain;background-repeat: no-repeat;"></div>
+		<div style="background: rgba(0, 0, 0, 1); position: absolute; right: 1vw; height: 100vh; width: 4vw;top: -2vh;margin: 1em auto;box-shadow: 1vw 0 1vw #defeec inset,-1vw 0 3vw #defeec inset;  background-size: contain;background-repeat: no-repeat;"></div>
+	</div>
+
+	<!--ToDo: make flashes not look TERRIBLE-->
+
+</body>
+</html>
