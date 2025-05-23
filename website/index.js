@@ -80,6 +80,13 @@ async function doCountdown()
 	let winner = document.score > document.AIScore ? "User" : "AI";
 	console.log(winner);
 	
+	if(winner == "User")
+	{
+		start();
+		await sleep(1000);
+		stop();
+	}
+
 	let endScreen = document.getElementById("endScreenWinner" + winner);
 	console.log(endScreen);
 	
@@ -94,7 +101,6 @@ async function doCountdown()
 
 async function doFlash()
 {
-
 	let on = false;
 	let flash = function(isOn)
 	{
