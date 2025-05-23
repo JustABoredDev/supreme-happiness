@@ -1,0 +1,21 @@
+
+// manifest.json
+{
+  "manifest_version": 3,
+  "name": "CPTC Image Processor",
+  "version": "1.0",
+  "permissions": ["activeTab", "scripting"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "host_permissions": ["http://your-server.com/*"],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  }
+}
