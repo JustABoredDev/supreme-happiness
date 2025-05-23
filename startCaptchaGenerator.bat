@@ -1,0 +1,1 @@
+python -m uvicorn CaptchaGenerator:app --port=8080

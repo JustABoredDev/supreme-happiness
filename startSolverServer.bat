@@ -1,0 +1,1 @@
+python -m uvicorn captchaSolverServer:app --port=8000
